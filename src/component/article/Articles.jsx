@@ -10,37 +10,57 @@ class Articles extends Component {
         super(props)
         this.state = {
             articles: [],
-            page: undefined
+            page: undefined,
+            options: {}
         }
-        this.handlePageClick = this.handlePageClick.bind(this)
-    }
-
-    componentDidMount() {
-        console.log('componentDidMount')
-        const INITIAL_PAGE = 1
-        this.fetch(INITIAL_PAGE)
-    }
-
-    fetch = (page) => {
-        console.log('fetch')
-        find({
-            type: 'everything',
-            query: '(lmia OR immigration OR visa OR work) AND canada',
-            page: page
-        })
-        .then(response => response.json())
-        .then(json => {
-            this.pages = Math.ceil(json.totalResults / 20)
-            console.log('Recuperou o json')
-            this.setState({
-                articles: json.articles,
-                page: page
-            })
-        })
-        .catch(error => console.log(`status:${error.status} - code:${error.code} - message:${error.message}`))
+        this.INITIAL_PAGE = 1
+        this._handlePageClick = this._handlePageClick.bind(this)
     }
     
-    handlePageClick(event) {
+    componentDidMount() {
+        console.log('componentDidMount')
+        const INITIAL_OPTIONS = {
+            typeSelect: 'everything',
+            query: '(lmia OR immigration OR visa OR work) AND canada'
+        }
+        this._fetch(this.INITIAL_PAGE, INITIAL_OPTIONS)
+    }
+
+    _fetch = (page, options) => {
+        console.log('fetch')
+        console.log(options)
+        find({
+            ...options,
+            page: page
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                return response.text()
+            }
+        })
+        .then(body => {
+            if (typeof body !== 'string') {
+                this.pages = Math.ceil(body.totalResults / 20)
+                console.log('Recuperou o json')
+                this.setState({
+                    articles: body.articles,
+                    page: page,
+                    options: {...options}
+                })
+            } else {
+                let json = JSON.parse(body)
+                throw json
+            }
+        })
+        .catch(error => {
+            // TODO: Handle error. Show up a modal or something
+            console.log(`status:${error.status} - code:${error.code} - message:${error.message}`)
+        })
+    }
+    
+    _handlePageClick(event) {
         let page
         if (event.target.innerText === '»') {
             page = this.state.page + 1
@@ -49,14 +69,18 @@ class Articles extends Component {
         } else {
             page = parseInt(event.target.innerText, 10)
         }
-        this.fetch(page)
+        this._fetch(page, this.state.options)
+    }
+
+    _handleFilter = (options) => {
+        this._fetch(this.INITIAL_PAGE, options)
     }
 
     render() {
         return (
             <div className="container-fluid p-0">
                 <div className="row no-gutters justify-content-start align-items-start row-cols-1">
-                    <Filter />
+                    <Filter handleFilter={this._handleFilter} />
                 </div>
                 <div className="row no-gutters align-items-start row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                     {!!this.state.articles.length && this.state.articles.map((article, index) => <Article key={index} article={article} />)}
@@ -68,7 +92,7 @@ class Articles extends Component {
                 </div>
                 <div className="row no-gutters justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                     <div className="col">
-                    {!!this.state.articles.length && <NavigationBar pages={this.pages} currentPage={this.state.page} handleCLick={this.handlePageClick} articles={this.state.articles}/>}
+                    {!!this.state.articles.length && <NavigationBar pages={this.pages} currentPage={this.state.page} handleCLick={this._handlePageClick} articles={this.state.articles}/>}
                     </div>
                 </div>
             </div>

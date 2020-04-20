@@ -8,7 +8,7 @@ export default (options) => {
     yesterday.setDate(today.getDate() - 1)
     //const url = 'http://newsapi.org/v2/top-headlines?country=us'
     //const url = `http://newsapi.org/v2/everything?q=ronaldinho&page=${this.currentPage}`
-    const url = `${baseUrl}${options.type}?q=${encodeURI(options.query)}&from=${yesterday.toISOString().substr(0, 10)}&to=${today.toISOString().substr(0, 10)}&page=${options.page}`
+    const url = `${baseUrl}${options.typeSelect}?q=${encodeURI(options.query)}&from=${yesterday.toISOString().substr(0, 10)}&to=${today.toISOString().substr(0, 10)}&page=${options.page}`
     const req = new Request(url)
     const headers = new Headers({
         Authorization: apiToken
