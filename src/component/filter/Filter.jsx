@@ -9,6 +9,9 @@ class Filter extends Component {
             typeSelect: this._setType,
             country: this._setValue,
             category: this._setValue,
+            fromDate: this._setValue,
+            toDate: this._setValue,
+            language: this._setValue,
         }
         this.state = {
             options: {}
@@ -94,19 +97,19 @@ class Filter extends Component {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="fromDateSpan">From</span>
                             </div>
-                            <input type="date" className="form-control" id="fromDate" aria-describedby="fromDateSpan" />
+                            <input type="date" className="form-control" id="fromDate" aria-describedby="fromDateSpan" onChange={this._handleFilterChange} />
                         </div>
                         <div className="input-group mb-2">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="toDateSpan">To</span>
                             </div>
-                            <input type="date" className="form-control" id="toDate" aria-describedby="toDateSpan" />
+                            <input type="date" className="form-control" id="toDate" aria-describedby="toDateSpan" onChange={this._handleFilterChange} />
                         </div>
                         <div className="input-group mb-2">
                             <div className="input-group-prepend">
                                 <label className="input-group-text" htmlFor="language">Language</label>
                             </div>
-                            <select className="custom-select" id="language">
+                            <select className="custom-select" id="language" onChange={this._handleFilterChange}>
                                 <option value={''}>Choose...</option>
                                 {LANGUAGE.map((language, index) => <option key={index} value={language.value}>{language.name}</option>)}
                             </select>
