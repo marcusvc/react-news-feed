@@ -2,7 +2,7 @@ import React from 'react'
 import Articles from './article/Articles'
 import './App.css'
 
-function App() {
+function App () {
   return (
     <div className="app container-fluid">
       <header className="app-header">
