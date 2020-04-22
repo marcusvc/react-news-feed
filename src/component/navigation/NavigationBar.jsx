@@ -2,10 +2,6 @@ import React from 'react'
 
 function NavigationBar (props) {
   const items = []
-  console.log('render NavigationBar')
-  console.log('pages: ', props.pages)
-  console.log('currentPage: ', props.currentPage)
-  console.log('articles length: ', props.articles.length)
   if (props.pages && props.pages < 4) {
     for (let i = 1; i <= props.pages; i++) {
       items.push(<li key={i} className="page-item"><button className="page-link" disabled={i === props.currentPage} onClick={props.handleCLick}>{i}</button></li>)
