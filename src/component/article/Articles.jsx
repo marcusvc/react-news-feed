@@ -18,17 +18,20 @@ class Articles extends Component {
     }
     
     componentDidMount() {
-        console.log('componentDidMount')
+        const today = new Date()
+        const yesterday = new Date()
+        yesterday.setDate(today.getDate() - 1)
         const INITIAL_OPTIONS = {
             typeSelect: 'everything',
-            query: '(lmia OR immigration OR visa OR work) AND canada'
+            query: '(lmia OR immigration OR visa OR work) AND canada',
+            from: yesterday.toISOString().substr(0, 10),
+            to: today.toISOString().substr(0, 10),
+            language: 'en'
         }
         this._fetch(this.INITIAL_PAGE, INITIAL_OPTIONS)
     }
 
     _fetch = (page, options) => {
-        console.log('fetch')
-        console.log(options)
         find({
             ...options,
             page: page
@@ -43,7 +46,6 @@ class Articles extends Component {
         .then(body => {
             if (typeof body !== 'string') {
                 this.pages = Math.ceil(body.totalResults / 20)
-                console.log('Recuperou o json')
                 this.setState({
                     articles: body.articles,
                     page: page,
