@@ -7,7 +7,7 @@ function App () {
     <div className="app container-fluid">
       <header className="app-header">
         <p>
-          My Feed
+          My News Feed
         </p>
       </header>
       <Articles />
