@@ -1,4 +1,221 @@
-export const COUNTRY = ['any', 'ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za']
+export const COUNTRY = [
+  {
+    name: 'Argentina',
+    value: 'ar'
+  },
+  {
+    name: 'Australia',
+    value: 'au'
+  },
+  {
+    name: 'Austria',
+    value: 'at'
+  },
+  {
+    name: 'Belgium',
+    value: 'be'
+  },
+  {
+    name: 'Brazil',
+    value: 'br'
+  },
+  {
+    name: 'Bulgaria',
+    value: 'bg'
+  },
+  {
+    name: 'Canada',
+    value: 'ca'
+  },
+  {
+    name: 'China',
+    value: 'cn'
+  },
+  {
+    name: 'Colombia',
+    value: 'co'
+  },
+  {
+    name: 'Cuba',
+    value: 'cu'
+  },
+  {
+    name: 'Czechia',
+    value: 'cz'
+  },
+  {
+    name: 'Germany',
+    value: 'de'
+  },
+  {
+    name: 'Egypt',
+    value: 'eg'
+  },
+  {
+    name: 'France',
+    value: 'fr'
+  },
+  {
+    name: 'Greece',
+    value: 'gr'
+  },
+  {
+    name: 'Hong Kong',
+    value: 'hk'
+  },
+  {
+    name: 'Hungary',
+    value: 'hu'
+  },
+  {
+    name: 'India',
+    value: 'in'
+  },
+  {
+    name: 'Indonesia',
+    value: 'id'
+  },
+  {
+    name: 'Ireland',
+    value: 'ie'
+  },
+  {
+    name: 'Israel',
+    value: 'il'
+  },
+  {
+    name: 'Italy',
+    value: 'it'
+  },
+  {
+    name: 'Japan',
+    value: 'jp'
+  },
+  {
+    name: 'Korea',
+    value: 'kr'
+  },
+  {
+    name: 'Latvia',
+    value: 'lv'
+  },
+  {
+    name: 'Lithuania',
+    value: 'lt'
+  },
+  {
+    name: 'Malaysia',
+    value: 'my'
+  },
+  {
+    name: 'Mexico',
+    value: 'mx'
+  },
+  {
+    name: 'Morocco',
+    value: 'ma'
+  },
+  {
+    name: 'Netherlands',
+    value: 'nl'
+  },
+  {
+    name: 'New Zealand',
+    value: 'nz'
+  },
+  {
+    name: 'Nigeria',
+    value: 'ng'
+  },
+  {
+    name: 'Norway',
+    value: 'no'
+  },
+  {
+    name: 'Philippines',
+    value: 'ph'
+  },
+  {
+    name: 'Poland',
+    value: 'pl'
+  },
+  {
+    name: 'Portugal',
+    value: 'pt'
+  },
+  {
+    name: 'Romania',
+    value: 'ro'
+  },
+  {
+    name: 'Russian Federation',
+    value: 'ru'
+  },
+  {
+    name: 'Saudi Arabia',
+    value: 'sa'
+  },
+  {
+    name: 'Serbia',
+    value: 'rs'
+  },
+  {
+    name: 'Singapore',
+    value: 'sg'
+  },
+  {
+    name: 'Slovakia',
+    value: 'sk'
+  },
+  {
+    name: 'Slovenia',
+    value: 'si'
+  },
+  {
+    name: 'South Africa',
+    value: 'za'
+  },
+  {
+    name: 'Sweden',
+    value: 'se'
+  },
+  {
+    name: 'Switzerland',
+    value: 'ch'
+  },
+  {
+    name: 'Taiwan',
+    value: 'tw'
+  },
+  {
+    name: 'Thailand',
+    value: 'th'
+  },
+  {
+    name: 'Turkey',
+    value: 'tr'
+  },
+  {
+    name: 'Ukraine',
+    value: 'ua'
+  },
+  {
+    name: 'United Arab Emirates',
+    value: 'ae'
+  },
+  {
+    name: 'United Kingdom of Great Britain and Northern Ireland',
+    value: 'gb'
+  },
+  {
+    name: 'United States of America',
+    value: 'us'
+  },
+  {
+    name: 'Venezuela',
+    value: 've'
+  }
+]
 
 export const TYPE = [
   {

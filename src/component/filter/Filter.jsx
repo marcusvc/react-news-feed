@@ -78,7 +78,7 @@ class Filter extends Component {
                             </div>
                             <select className="custom-select" id="country" onChange={this._handleFilterChange}>
                                 <option value={''}>Choose...</option>
-                                {COUNTRY.map((country, index) => <option key={index} value={country}>{country}</option>)}
+                                {COUNTRY.map((country, index) => <option key={index} value={country.value}>{country.name}</option>)}
                             </select>
                         </div>
                         <div className="input-group mb-2">
