@@ -64,7 +64,7 @@ class Articles extends Component {
         })
     }
     
-    _handlePageClick(event) {
+    _handlePageClick = (event) => {
         let page
         if (event.target.innerText === '»') {
             page = this.state.page + 1
