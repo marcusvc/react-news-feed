@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Article from './Article'
 import Filter from '../filter/Filter'
+import Loading from '../loading/Loading'
 import NavigationBar from '../navigation/NavigationBar'
 import find from '../../service/ArticleService'
 
@@ -32,6 +33,7 @@ class Articles extends Component {
     }
 
     _fetch = (page, options) => {
+        this.setState({ articles: [] })
         find({
             ...options,
             page: page
@@ -84,6 +86,7 @@ class Articles extends Component {
                 <div className="row no-gutters justify-content-start align-items-start row-cols-1">
                     <Filter handleFilter={this._handleFilter} />
                 </div>
+                {!this.state.articles.length && <Loading />}
                 <div className="row no-gutters align-items-start row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                     {!!this.state.articles.length && this.state.articles.map((article, index) => <Article key={index} article={article} />)}
                 </div>
@@ -94,7 +97,7 @@ class Articles extends Component {
                 </div>
                 <div className="row no-gutters justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                     <div className="col">
-                    {!!this.state.articles.length && <NavigationBar pages={this.pages} currentPage={this.state.page} handleCLick={this._handlePageClick} articles={this.state.articles}/>}
+                        {!!this.state.articles.length && <NavigationBar pages={this.pages} currentPage={this.state.page} handleCLick={this._handlePageClick} articles={this.state.articles}/>}
                     </div>
                 </div>
             </div>
