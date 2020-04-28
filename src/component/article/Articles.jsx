@@ -24,7 +24,7 @@ class Articles extends Component {
         yesterday.setDate(today.getDate() - 1)
         const INITIAL_OPTIONS = {
             typeSelect: 'everything',
-            query: '(lmia OR immigration OR visa OR work) AND canada',
+            query: '(NFL OR NBA OR MLB) AND playoffs',
             from: yesterday.toISOString().substr(0, 10),
             to: today.toISOString().substr(0, 10),
             language: 'en'

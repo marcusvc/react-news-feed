@@ -123,7 +123,7 @@ class Filter extends Component {
                             </div>
                             <input type="text" className="form-control" id="query"
                                 aria-describedby="querySpan"
-                                placeholder="(lmia OR immigration OR visa OR work) AND canada"
+                                placeholder="(NFL OR NBA OR MLB) AND playoffs"
                                 ref={this._queryRef} />
                         </div>
                         <div className="input-group mb-2">
